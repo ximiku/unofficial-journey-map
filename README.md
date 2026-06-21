@@ -4,6 +4,8 @@
 
 ## 运行
 
+公开演示地址：[https://ximiku.github.io/unofficial-journey-map/](https://ximiku.github.io/unofficial-journey-map/)
+
 ```bash
 npm install
 npm run dev
