@@ -20,7 +20,10 @@ describe('app flow', () => {
   it('renders the premise on the home page', () => {
     renderApp();
     expect(screen.getByRole('heading', { name: '取经路线非官方注释' })).toBeInTheDocument();
-    expect(screen.getByText(/你的地图越清楚/)).toBeInTheDocument();
+    expect(screen.getByText(/唐僧师徒已经抵达灵山/)).toBeInTheDocument();
+    expect(screen.getByText(/你不是取经人，而是临时档案员/)).toBeInTheDocument();
+    expect(screen.getByText(/英雄已经走过，路边的人还在等一个位置/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '开始整理' })).toBeInTheDocument();
   });
 
   it('renders onboarding, route slider, and blocks future jump nodes', async () => {

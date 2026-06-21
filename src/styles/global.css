@@ -54,13 +54,15 @@ a:focus-visible {
 
 .home-page {
   display: grid;
-  grid-template-columns: minmax(280px, 0.86fr) minmax(320px, 1.14fr);
+  grid-template-columns: minmax(320px, 0.9fr) minmax(360px, 1.1fr);
   align-items: center;
   gap: 34px;
+  width: min(100%, 1440px);
+  margin: 0 auto;
 }
 
 .home-copy {
-  max-width: 720px;
+  max-width: 760px;
   padding: 34px 0 34px 20px;
 }
 
@@ -100,11 +102,41 @@ p {
   line-height: 1.72;
 }
 
-.home-thesis {
-  max-width: 640px;
-  color: var(--ink-soft);
+.home-kicker {
+  max-width: 700px;
+  margin: 18px 0 0;
+  color: var(--ink);
   font-family: var(--font-serif);
-  font-size: 1.18rem;
+  font-size: clamp(1.2rem, 2vw, 1.56rem);
+  line-height: 1.62;
+}
+
+.home-brief {
+  display: grid;
+  gap: 10px;
+  max-width: 720px;
+  margin: 22px 0 0;
+  padding: 18px 20px;
+  border-left: 4px solid var(--seal);
+  background:
+    linear-gradient(90deg, rgba(166, 50, 37, 0.08), transparent 42%),
+    rgba(251, 246, 232, 0.62);
+  box-shadow: inset 0 0 0 1px rgba(36, 26, 18, 0.08);
+}
+
+.home-brief p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.home-note {
+  max-width: 620px;
+  margin: 18px 0 22px;
+  padding: 12px 14px;
+  border: 1px dashed rgba(166, 50, 37, 0.38);
+  color: var(--review-blue);
+  background: rgba(226, 210, 173, 0.22);
+  font-family: var(--font-serif);
 }
 
 .home-actions,
@@ -164,10 +196,12 @@ button:disabled {
 
 .home-scroll {
   position: relative;
-  min-height: 430px;
-  padding: 60px 34px;
+  min-height: 510px;
+  padding: 42px 40px;
   border: 1px solid rgba(36, 26, 18, 0.18);
   background:
+    radial-gradient(circle at 18% 22%, rgba(166, 50, 37, 0.1), transparent 9rem),
+    radial-gradient(circle at 78% 74%, rgba(51, 75, 104, 0.1), transparent 11rem),
     linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.18)),
     var(--paper-light);
   box-shadow: var(--shadow);
@@ -193,21 +227,171 @@ button:disabled {
   transform: rotate(180deg);
 }
 
-.home-scroll p {
+.scroll-caption {
   position: relative;
-  display: inline-block;
-  margin: 30px 20px 0 0;
-  padding: 7px 12px;
-  border: 1px solid rgba(36, 26, 18, 0.25);
-  background: rgba(244, 236, 216, 0.72);
-  font-family: var(--font-serif);
+  z-index: 2;
+  display: grid;
+  gap: 6px;
+  width: fit-content;
+  max-width: 70%;
+  padding: 12px 14px;
+  border: 1px solid rgba(36, 26, 18, 0.18);
+  background: rgba(251, 246, 232, 0.72);
 }
 
-.scroll-route {
+.scroll-caption span {
+  color: var(--seal);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.scroll-caption strong {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+}
+
+.home-route-map {
   position: absolute;
-  inset: 52% 42px auto;
-  height: 2px;
+  inset: 110px 24px auto;
+  width: calc(100% - 48px);
+  height: 300px;
+}
+
+.home-route-shadow,
+.home-route-main,
+.home-route-branch {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-route-shadow {
+  stroke: rgba(36, 26, 18, 0.18);
+  stroke-width: 12;
+}
+
+.home-route-main {
+  stroke: var(--ink);
+  stroke-width: 3.2;
+}
+
+.home-route-branch {
+  stroke: rgba(166, 50, 37, 0.55);
+  stroke-dasharray: 7 8;
+  stroke-width: 2.2;
+}
+
+.home-route-nodes {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.home-route-node {
+  position: absolute;
+  min-width: 58px;
+  padding: 7px 9px;
+  border: 1px solid rgba(36, 26, 18, 0.24);
+  background: rgba(251, 246, 232, 0.82);
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(36, 26, 18, 0.08);
+}
+
+.home-route-node::before {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: var(--paper-light);
+  content: "";
+  transform: translateX(-50%);
+}
+
+.node-changan {
+  top: 268px;
+  left: 7%;
+}
+
+.node-changan::before {
   background: var(--ink);
+}
+
+.node-shuangcha {
+  top: 184px;
+  left: 22%;
+}
+
+.node-shuangcha::before {
+  border-color: var(--seal);
+  background: rgba(166, 50, 37, 0.18);
+}
+
+.node-wuxing {
+  top: 246px;
+  left: 39%;
+}
+
+.node-wuxing::before {
+  border-color: var(--review-blue);
+  border-radius: 4px;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.node-huoyan {
+  top: 180px;
+  left: 56%;
+}
+
+.node-shituo {
+  top: 264px;
+  left: 73%;
+}
+
+.node-lingshan {
+  top: 164px;
+  right: 6%;
+}
+
+.home-evidence {
+  position: absolute;
+  z-index: 3;
+  padding: 8px 10px;
+  border: 1px solid rgba(36, 26, 18, 0.2);
+  background: rgba(244, 236, 216, 0.84);
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: 0.86rem;
+  box-shadow: 0 8px 16px rgba(36, 26, 18, 0.08);
+}
+
+.evidence-one {
+  top: 136px;
+  left: 12%;
+  transform: rotate(-5deg);
+}
+
+.evidence-two {
+  top: 94px;
+  right: 16%;
+  transform: rotate(4deg);
+}
+
+.evidence-three {
+  right: 18%;
+  bottom: 74px;
+  border-color: rgba(166, 50, 37, 0.28);
+  transform: rotate(-4deg);
+}
+
+.evidence-four {
+  left: 20%;
+  bottom: 66px;
+  transform: rotate(3deg);
 }
 
 .home-seal {
@@ -1512,6 +1696,15 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 
+  .home-copy {
+    max-width: 920px;
+    padding-right: 20px;
+  }
+
+  .home-scroll {
+    min-height: 430px;
+  }
+
   .task-summary {
     position: static;
   }
@@ -1551,6 +1744,22 @@ button:disabled {
   .archive-page,
   .ending-page {
     padding: 14px;
+  }
+
+  .home-copy {
+    padding: 18px 0 6px;
+  }
+
+  .home-brief {
+    padding: 14px;
+  }
+
+  .home-actions {
+    align-items: stretch;
+  }
+
+  .home-actions button {
+    flex: 1 1 140px;
   }
 
   .topbar {
@@ -1635,7 +1844,86 @@ button:disabled {
   }
 
   .home-scroll {
-    min-height: 300px;
+    min-height: 360px;
+    padding: 28px 22px;
+  }
+
+  .scroll-caption {
+    max-width: 100%;
+  }
+
+  .home-route-map {
+    inset: 96px 10px auto;
+    width: calc(100% - 20px);
+    height: 210px;
+  }
+
+  .home-route-node {
+    min-width: 46px;
+    padding: 5px 7px;
+    font-size: 0.78rem;
+  }
+
+  .node-changan {
+    top: 214px;
+    left: 5%;
+  }
+
+  .node-shuangcha {
+    top: 154px;
+    left: 20%;
+  }
+
+  .node-wuxing {
+    top: 206px;
+    left: 38%;
+  }
+
+  .node-huoyan {
+    top: 152px;
+    left: 55%;
+  }
+
+  .node-shituo {
+    top: 212px;
+    left: 70%;
+  }
+
+  .node-lingshan {
+    top: 144px;
+    right: 2%;
+  }
+
+  .home-evidence {
+    padding: 5px 7px;
+    font-size: 0.72rem;
+  }
+
+  .evidence-one {
+    top: 112px;
+    left: 5%;
+  }
+
+  .evidence-two {
+    top: 88px;
+    right: 5%;
+  }
+
+  .evidence-three {
+    right: 7%;
+    bottom: 62px;
+  }
+
+  .evidence-four {
+    left: 12%;
+    bottom: 54px;
+  }
+
+  .home-seal {
+    right: 24px;
+    bottom: 18px;
+    padding: 8px 10px;
+    font-size: 0.9rem;
   }
 }
 
