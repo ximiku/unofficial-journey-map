@@ -1,0 +1,17 @@
+:root {
+  --paper: #f4ecd8;
+  --paper-deep: #e2d2ad;
+  --paper-light: #fbf6e8;
+  --ink: #241a12;
+  --ink-soft: #59483a;
+  --seal: #a63225;
+  --seal-soft: #c55b4e;
+  --review-blue: #334b68;
+  --ash: #77706a;
+  --thread: #8c2f24;
+  --line: rgba(36, 26, 18, 0.22);
+  --shadow: 0 18px 45px rgba(36, 26, 18, 0.14);
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}

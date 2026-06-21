@@ -1,0 +1,20 @@
+@media print {
+  .topbar-actions,
+  .map-toolbar,
+  .annotation-board,
+  .review-panel,
+  .home-actions {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .dossier-panel,
+  .archive-section,
+  .ending-scroll {
+    box-shadow: none;
+    break-inside: avoid;
+  }
+}
